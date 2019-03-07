@@ -17,7 +17,7 @@ class Data extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('user_model');
+        $this->load->model('barang_model');
         $this->isLoggedIn();
     }
 
@@ -34,7 +34,7 @@ class Data extends BaseController
     /**
      * This function is used to load the user list
      */
-    function userListing()
+    function barangListing()
     {
         if($this->isAdmin() == TRUE)
         {
@@ -42,22 +42,22 @@ class Data extends BaseController
         }
         else
         {
-            $this->load->model('user_model');
+            $this->load->model('barang_model');
 
             $searchText = $this->input->post('searchText');
             $data['searchText'] = $searchText;
 
             $this->load->library('pagination');
 
-            $count = $this->user_model->userListingCount($searchText);
+            $count = $this->barang_model->barangListingCount($searchText);
 
-			$returns = $this->paginationCompress ( "userListing/", $count, 5 );
+			$returns = $this->paginationCompress ( "barangListing/", $count, 5 );
 
-            $data['userRecords'] = $this->user_model->userListing($searchText, $returns["page"], $returns["segment"]);
+            $data['barangRecords'] = $this->barang_model->barangListing($searchText, $returns["page"], $returns["segment"]);
 
             $this->global['pageTitle'] = 'PT. Dumai Jaya Adamas : User Listing';
 
-            $this->loadViews("users", $this->global, $data, NULL);
+            $this->loadViews("barangs", $this->global, $data, NULL);
         }
     }
 
@@ -72,12 +72,12 @@ class Data extends BaseController
         }
         else
         {
-            $this->load->model('user_model');
-            $data['roles'] = $this->user_model->getUserRoles();
+            $this->load->model('user_barangl');
+            $data['roles'] = $this->user_barang->getBarangRoles();
 
             $this->global['pageTitle'] = 'PT. Dumai Jaya Adamas : Add New User';
 
-            $this->loadViews("addNew", $this->global, $data, NULL);
+            $this->loadViews("addBarang", $this->global, $data, NULL);
         }
     }
 
@@ -102,7 +102,7 @@ class Data extends BaseController
     /**
      * This function is used to add new user to the system
      */
-    function addNewUser()
+    function addNewBarang()
     {
         if($this->isAdmin() == TRUE)
         {
@@ -121,7 +121,7 @@ class Data extends BaseController
 
             if($this->form_validation->run() == FALSE)
             {
-                $this->addNew();
+                $this->addNewBarang();
             }
             else
             {
@@ -131,22 +131,22 @@ class Data extends BaseController
                 $roleId = $this->input->post('role');
                 $mobile = $this->input->post('mobile');
 
-                $userInfo = array('email'=>$email, 'password'=>getHashedPassword($password), 'roleId'=>$roleId, 'name'=> $name,
+                $barangInfo = array('email'=>$email, 'password'=>getHashedPassword($password), 'roleId'=>$roleId, 'name'=> $name,
                                     'mobile'=>$mobile, 'createdBy'=>$this->vendorId, 'createdDtm'=>date('Y-m-d H:i:s'));
 
-                $this->load->model('user_model');
-                $result = $this->user_model->addNewUser($userInfo);
+                $this->load->model('barang_model');
+                $result = $this->barang_model->addNewBarang($barangInfo);
 
                 if($result > 0)
                 {
-                    $this->session->set_flashdata('success', 'New User created successfully');
+                    $this->session->set_flashdata('success', 'Data Barang Berhasil Ditambahkan');
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', 'User creation failed');
+                    $this->session->set_flashdata('error', 'Data Barang Gagal Ditambahkan');
                 }
 
-                redirect('addNew');
+                redirect('addBarang');
             }
         }
     }

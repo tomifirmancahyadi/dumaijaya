@@ -22,7 +22,7 @@
 															<span style="font-size:1px;min-height:0;color:#fff;width:0;display:block">Just one more step.</span>
 															<dl style="list-style-type:none;padding:0;overflow:hidden;margin:0">
 																<dt style="font-size:15px;display:inline-block;width:100%;margin:0;padding:0 0 12px 0;vertical-align:top;padding-bottom:0!important">
-																	<a href="<?php echo base_url(); ?>" title="CodeInsect" style="display:inline-block" target="_blank">CodeInsect</a>
+																	<a href="<?php echo base_url(); ?>" title="PT. Dumai Jaya Adamas" style="display:inline-block" target="_blank">PT. Dumai Jaya Adamas</a>
 																</dt>
 																<div style="font-size:15px;display:inline-block;width:100%;margin:0;vertical-align:top"></div>
 															</dl>
@@ -47,7 +47,7 @@
 										<table style="margin:0%;width:100%;border-spacing:0;table-layout:fixed" cellpadding="0" cellspacing="0">
 											<tbody>
 												<tr>
-													<td style="padding:0 3.358%;font-size:15px;color:#555;line-height:24px">    
+													<td style="padding:0 3.358%;font-size:15px;color:#555;line-height:24px">
 														<div style="min-height:28px"></div>
 														<div style="padding:24px 3.6% 24px;background:#fff;border:1px solid #e3e5e1">
 															<table cellpadding="0" cellspacing="0" style="width:100%;margin:0;padding:0">

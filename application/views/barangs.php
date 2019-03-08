@@ -18,7 +18,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Users List</h3>
+                    <h3 class="box-title">List Barang</h3>
                     <div class="box-tools">
                         <form action="<?php echo base_url() ?>barangListing" method="POST" id="searchList">
                             <div class="input-group">
@@ -33,28 +33,49 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                      <th>Id</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Mobile</th>
-                      <th>Role</th>
+                        <th>id</th>
+                        <th>Tanggal</th>
+                      <th>Mesin</th>
+                      <th>Aktual Pakai</th>
+                      <th>Detail</th>
+                      <th>NO NPB</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah Pesan</th>
+                        <th>Suplier</th>
+                        <th>Tanggal Masuk</th>
+                        <th>Jumlah Masuk</th>
+                        <th>Keterangan</th>
+                        <th>Harga</th>
+                        <th>Jumlah Harga</th>
                       <th class="text-center">Actions</th>
                     </tr>
                     <?php
-                    if(!empty($userRecords))
+                    if(!empty($barangRecords))
                     {
-                        foreach($userRecords as $record)
+                        foreach($barangRecords as $record)
                         {
                     ?>
                     <tr>
-                      <td><?php echo $record->userId ?></td>
-                      <td><?php echo $record->name ?></td>
-                      <td><?php echo $record->email ?></td>
-                      <td><?php echo $record->mobile ?></td>
-                      <td><?php echo $record->role ?></td>
-                      <td class="text-center">
-                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
-                          <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>"><i class="fa fa-trash"></i></a>
+                      <td><?php echo $record->barangId ?></td>
+                      <td><?php echo $record->tanggal ?></td>
+                      <td><?php echo $record->id_mesin ?></td>
+                      <td><?php echo $record->id_aktual_pakai ?></td>
+                        <td><?php echo $record->detail ?></td>
+                        <td><?php echo $record->no_npb ?></td>
+                        <td><?php echo $record->nama_barang ?></td>
+                        <td><?php echo $record->jumlah_pesan ?></td>
+                        <td><?php echo $record->no_po?></td>
+                        <td><?php echo $record->id_suplier?></td>
+                        <td><?php echo $record->tanggal_masuk ?></td>
+                        <td><?php echo $record->jumlah_masuk?></td>
+                        <td><?php echo $record->keterangan?></td>
+                        <td><?php echo $record->harga ?></td>
+                        <td><?php echo $record->jumlah_harga ?></td>
+
+
+                        <td class="text-center">
+                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->barangId; ?>"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->barangId; ?>"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <?php
@@ -79,7 +100,7 @@
             e.preventDefault();
             var link = jQuery(this).get(0).href;
             var value = link.substring(link.lastIndexOf('/') + 1);
-            jQuery("#searchList").attr("action", baseURL + "dataListing/" + value);
+            jQuery("#searchList").attr("action", baseURL + "barangListing/" + value);
             jQuery("#searchList").submit();
         });
     });

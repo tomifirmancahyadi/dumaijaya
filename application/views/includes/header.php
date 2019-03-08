@@ -117,7 +117,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#" >
+              <a href="<?php echo base_url(); ?>barangListing" >
                 <i class="fa fa-ticket"></i>
                 <span>Barang</span>
               </a>

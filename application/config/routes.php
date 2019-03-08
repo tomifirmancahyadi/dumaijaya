@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "login";
-$route['404_override'] = 'error';
+$route['404_override'] = "errors/page_missing";
 
 
 /*********** USER DEFINED ROUTES *******************/

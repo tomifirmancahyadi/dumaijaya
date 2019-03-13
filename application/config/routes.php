@@ -52,6 +52,14 @@ $route['userListing/(:num)'] = "user/userListing/$1";
 $route['addNew'] = "user/addNew";
 
 $route['addNewUser'] = "user/addNewUser";
+
+$route['barangListing'] = 'barang/barangListing';
+$route['barangListing/(:num)'] = "barang/barangListing/$1";
+$route['addBarang'] = "barang/addBarang";
+
+$route['addNewBarang'] = "barang/addNewBarang";
+
+
 $route['editOld'] = "user/editOld";
 $route['editOld/(:num)'] = "user/editOld/$1";
 $route['editUser'] = "user/editUser";
